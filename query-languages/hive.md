@@ -11,3 +11,7 @@ Convert date from UNIX timestamp to date in specific format:
 ```sql
 select from_unixtime(1507032575,'yyyy-MM-dd HH:mm:ss.SSS') as ts;
 ```
+In operator:
+```sql
+select 1 where 2 in (2,3,4,5);
+```
