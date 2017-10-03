@@ -8,6 +8,6 @@ Convert date with specific format to UNIX timestamp:
 select from_unixtime(unix_timestamp('2017-09-26 05:17:00,000', 'yyyy-MM-dd HH:mm:ss,SSS'),'HH:mm:ss') as ts;
 ```
 Convert date from UNIX timestamp to date in specific format:
-```aql
+```sql
 select from_unixtime(1507032575,'yyyy-MM-dd HH:mm:ss.SSS') as ts;
 ```
