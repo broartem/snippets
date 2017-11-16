@@ -1,5 +1,5 @@
 # Shapeless library snippets
-Polymorphic mapper from `T` to `Option[T]`, which converts null to None and non-null value to Some(value):
+Polymorphic mapper from `T` to `Option[T]`, which converts `null` to `None` and non-null `value` to `Some(value)`:
 ```scala
 import shapeless._
 
