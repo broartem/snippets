@@ -11,3 +11,7 @@ Euclidean distance between each pair of the two collections of inputs, similar t
 ```
 np.square(self.X_train).sum(axis=1)[None,:] - 2 * np.sqrt(X.dot(self.X_train.T) + np.square(X).sum(axis=1)[:,None])
 ```
+Reshape multi-dimentional array into one-dimentional:
+```
+np.reshape(a, -1)
+```
