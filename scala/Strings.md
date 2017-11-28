@@ -1,5 +1,5 @@
 # Snippets for working with strings in Scala
-Remove newlines and spaces in multi-line string:
+Remove newlines and spaces in multi-line string (taken from https://stackoverflow.com/questions/17581714):
 ```scala
 """
   |line 1
