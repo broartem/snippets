@@ -12,3 +12,11 @@ JOIN (SELECT ID, max(date) maxDate
       GROUP BY ID) b
 ON a.ID = b.ID AND a.date = b.maxDate
 ```
+Split column into multiple rows in Postgres using lateral join (see https://stackoverflow.com/questions/29419993):
+```sql
+SELECT s.token, flag
+FROM
+  (SELECT 'this is a test' as subject, 2 as flag) t,
+  unnest(string_to_array(t.subject, ' ')) s(token)
+WHERE  flag = 2;
+```
