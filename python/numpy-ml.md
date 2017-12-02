@@ -8,7 +8,7 @@ def svm_loss_vectorized(W, X, y, reg):
     
   scores = X.dot(W)
   correct_class_scores = scores[np.arange(num_train), y]
-  margin = np.maximum(0, scores - np.reshape(correct_class_scores, (num_train, 1)) + 1) # note delta = 1
+  margin = np.maximum(0, scores - np.reshape(correct_class_scores, (num_train, 1)) + 1)
   margin[np.arange(num_train), y] = 0
 
   indicator = (margin > 0).astype("float32")
