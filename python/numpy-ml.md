@@ -1,5 +1,5 @@
 # Pure numpy-based snippets for ML
-SVM loss and gradient for multi-class classification (see http://cs231n.github.io/linear-classify/#svm):
+SVM loss and gradient for linear multi-class classification (see http://cs231n.github.io/linear-classify/#svm):
 ```python
 def svm_loss_vectorized(W, X, y):
   num_classes = W.shape[1]
@@ -26,7 +26,7 @@ def svm_loss_vectorized(W, X, y):
 
   return loss, dW
 ```
-Softmax loss and gradient for multi-class classification (see http://cs231n.github.io/linear-classify/#softmax):
+Softmax loss and gradient for linear multi-class classification (see http://cs231n.github.io/linear-classify/#softmax):
 ```python
 def softmax_loss_vectorized(W, X, y):
   num_classes = W.shape[1]
