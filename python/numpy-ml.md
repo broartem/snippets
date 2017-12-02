@@ -8,6 +8,7 @@ def svm_loss_vectorized(W, X, y, reg):
     
   scores = X.dot(W)
   correct_class_scores = scores[np.arange(num_train), y]
+  
   margin = np.maximum(0, scores - np.reshape(correct_class_scores, (num_train, 1)) + 1)
   margin[np.arange(num_train), y] = 0
 
@@ -15,6 +16,9 @@ def svm_loss_vectorized(W, X, y, reg):
   indicator_sums = np.sum(indicator, axis=1)
   indicator[np.arange(num_train), y] = -indicator_sums
 
+  # 3D array of shape (num_train, num_dims, num_classes), containing gradient deltas for
+  # each training example `i` in its rows. `X` is broadcasted in `num_classes` dimention and
+  # `indicator` is broadcasted in `num_dims` dimention.
   dWi = X.reshape((num_train, num_dims, 1)) * indicator.reshape((num_train, 1, num_classes))
 
   loss = np.sum(margin) / num_train
