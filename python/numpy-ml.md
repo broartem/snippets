@@ -46,7 +46,7 @@ def softmax_loss_vectorized(W, X, y):
     
   loss = np.sum(-correct_class_scores + np.log(scores_exp_sums)) / num_train
 
-  # Formula for gradients:
+  # Formula for gradients (you can just type it in here asciimath.org):
   # ```asciimath
   #   del_(L_i)/del_(W_(cd)) = (-I_{c=y_i}  + e^(f_(ic))/(sum_(j=1)^C e^(f_(ij)))) * X_(id)
   # ```
