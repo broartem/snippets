@@ -1,6 +1,6 @@
 # Pure numpy-based snippets for ML
 SVM loss and gradient for multi-class classification (see http://cs231n.github.io/linear-classify/#svm):
-```
+```python
 def svm_loss_vectorized(W, X, y, reg):
   num_classes = W.shape[1]
   num_train = X.shape[0]
