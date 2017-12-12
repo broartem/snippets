@@ -9,3 +9,7 @@ hadoop distcp \
 hdfs://source-host:port/path/to/my/file_src \
 hdfs://destination-host:port/path/to/my/file_dst
 ```
+NOTE: if you replicate parts of hive table using snippet above, do not forget to repair destination table afterwards with the following command:
+```sql
+MSCK REPAIR TABLE <table_name>
+```
