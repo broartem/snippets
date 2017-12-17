@@ -1,4 +1,11 @@
 # Google Cloud SDK command line snippets
+## Compute Engine
+List static addresses:
+```
+gcloud compute addresses list
+```
+
+## Containers
 Some prerequisites:
 * [Google Cloud SDK download page](https://cloud.google.com/sdk/)
 * [Quickstarts for various platforms](https://cloud.google.com/sdk/docs/quickstarts)
