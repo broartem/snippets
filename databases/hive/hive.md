@@ -27,7 +27,7 @@ SELECT *
 FROM t1, t2
 ```
 Find the Largest Series with no Gaps (adopted from ["10 SQL Tricks That You Didn’t Think Were Possible"](https://blog.jooq.org/2016/04/25/10-sql-tricks-that-you-didnt-think-were-possible/) post):
-```
+```sql
 WITH
   login_dates AS (
     SELECT '2014-03-18' as login_date UNION ALL
