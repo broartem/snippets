@@ -26,3 +26,33 @@ WITH
 SELECT *
 FROM t1, t2
 ```
+Find the Largest Series with no Gaps (adopted from ["10 SQL Tricks That You Didn’t Think Were Possible"](https://blog.jooq.org/2016/04/25/10-sql-tricks-that-you-didnt-think-were-possible/) post):
+```
+WITH
+  login_dates AS (
+    SELECT '2014-03-18' as login_date UNION ALL
+    SELECT '2014-03-16' as login_date UNION ALL
+    SELECT '2014-03-15' as login_date UNION ALL
+    SELECT '2014-03-14' as login_date
+  ),
+  -- Unfortunately Hive rejects to compute statement `date_sub(login_date, ROW_NUMBER() ..`,
+  -- so we have to create two subqueries
+  login_dates_enumerated AS (
+    SELECT
+      login_date,
+      ROW_NUMBER() OVER (ORDER BY login_date) AS row_num
+    FROM login_dates
+  ),
+  login_date_groups AS (
+    SELECT
+      login_date,
+      date_sub(login_date, row_num) AS grp
+    FROM login_dates_enumerated
+  )
+SELECT
+  min(login_date), max(login_date), 
+  datediff(max(login_date), min(login_date)) + 1 AS length
+FROM login_date_groups
+GROUP BY grp
+ORDER BY length DESC
+```
