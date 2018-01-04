@@ -15,7 +15,7 @@ select from_unixtime(1507032575,'yyyy-MM-dd HH:mm:ss.SSS') as ts;
 ```sql
 select 1 where 2 in (2,3,4,5);
 ```
-Data Generation with Recursive SQL (inspired by ["10 SQL Tricks That You Didn’t Think Were Possible"](https://blog.jooq.org/2016/04/25/10-sql-tricks-that-you-didnt-think-were-possible/) post):
+Using `with` clause (unfortunately, hive does not support recursive SQL as described in ["10 SQL Tricks That You Didn’t Think Were Possible"](https://blog.jooq.org/2016/04/25/10-sql-tricks-that-you-didnt-think-were-possible/) post):
 ```sql
 WITH
   t1 AS (SELECT 1 as v1, 2 as v2),
